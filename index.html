@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Videograph Template">
+    <meta name="keywords" content="Videograph, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Noman | Portfolio</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header -->
+    <div id="header"></div>
+    <script>
+    fetch("header.html")
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById("header").innerHTML = data;
+        });
+    </script>
+
+    <!-- Hero Section Begin -->
+    <section class="hero">
+        <div class="hero__slider owl-carousel">
+            <div class="hero__item set-bg" data-setbg="img/hero/hero-1.webp">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hero__text">
+                                <span>Who am I?</span>
+                                <h2>Hello, This is Shah Imran Noman Mir</h2>
+                                <a href="#" class="primary-btn">See more about me</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero__item set-bg" data-setbg="img/hero/hero-1.webp">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hero__text">
+                                <span>What I Do:</span>
+                                <h2>Software Engineering Student</h2>
+                                <a href="#" class="primary-btn">See more about me</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero__item set-bg" data-setbg="img/hero/hero-1.webp">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hero__text">
+                                <span>My Vision:</span>
+                                <h2>Director | Entrepreneur | Learner</h2>
+                                <a href="#" class="primary-btn">See more about me</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    // General fade-in elements
+    const generalElems = document.querySelectorAll(".fade-in");
+
+    const generalObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        } else {
+            entry.target.classList.remove("show"); // scroll-up hide
+        }
+        });
+    }, { threshold: 0.4, rootMargin: "0px 0px -50px 0px" });
+
+    generalElems.forEach(elem => generalObserver.observe(elem));
+
+
+    // Team fade-left / fade-right sequential
+    const teamElems = document.querySelectorAll(".fade-left, .fade-right");
+
+    const teamObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+        if(entry.isIntersecting){
+            setTimeout(() => {
+            entry.target.classList.add("show");
+            entry.target.classList.remove("hide");
+            }, index * 300); // staggered delay
+        } else {
+            entry.target.classList.remove("show");
+            entry.target.classList.add("hide");
+        }
+        });
+    }, { threshold: 0.4, rootMargin: "0px 0px -50px 0px" });
+
+    teamElems.forEach(elem => teamObserver.observe(elem));
+    });
+
+
+
+    // Skills
+document.addEventListener("DOMContentLoaded", function () {
+    const progressBars = document.querySelectorAll(".progress");
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                const bar = entry.target;
+                const targetWidth = bar.getAttribute('data-width');
+                let width = 0;
+                bar.style.width = '0'; // reset before animation
+                const interval = setInterval(() => {
+                    if(width >= parseInt(targetWidth)){
+                        clearInterval(interval);
+                    } else {
+                        width++;
+                        bar.style.width = width + '%';
+                    }
+                }, 15);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    progressBars.forEach(bar => observer.observe(bar));
+});
+
+
+
+    </script>
+
+
+
+    <!-- Profession Section Begin -->
+    <section class="services spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 fade-in">
+                    <div class="services__title">
+                        <div class="section-title">
+                            <span>My Profile</span>
+                            <h2>What I Do?</h2>
+                        </div>
+                        <p>
+                            This is a short overview of my background, experience and professional involvement.
+                        </p>
+                        <a href="#" class="primary-btn">View More</a>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row">
+                        <!-- Student -->
+                        <div class="col-lg-6 col-md-6 col-sm-6 fade-in">
+                            <div class="services__item">
+                                <div class="services__item__icon">
+                                    <i class="fa-solid fa-user-graduate"></i>
+                                </div>
+                                <h4>Student</h4>
+                                <p>Daffodil International University<br>
+                                Department of Software Engineering</p>
+                            </div>
+                        </div>
+
+                        <!-- CEO -->
+                        <div class="col-lg-6 col-md-6 col-sm-6 fade-in">
+                            <div class="services__item">
+                                <div class="services__item__icon">
+                                    <i class="fa-solid fa-crown"></i> <!-- CEO-specific icon -->
+                                </div>
+                                <h4>CEO</h4>
+                                <p>CEO at <strong>Mir Enterprise</strong>, focused on business growth and innovation.</p>
+                            </div>
+                        </div>
+
+                        <!-- Director -->
+                        <div class="col-lg-6 col-md-6 col-sm-6 fade-in">
+                            <div class="services__item">
+                                <div class="services__item__icon">
+                                    <i class="fa-solid fa-user-tie"></i>
+                                </div>
+                                <h4>Director</h4>
+                                <p>Director at <strong>Laksam Fair Health Hospital</strong>, working to ensure better healthcare services.</p>
+                            </div>
+                        </div>
+
+                        <!-- Export & Import -->
+                        <div class="col-lg-6 col-md-6 col-sm-6 fade-in">
+                            <div class="services__item">
+                                <div class="services__item__icon">
+                                    <i class="fa-solid fa-right-left"></i>
+                                </div>
+                                <h4>Export & Import</h4>
+                                <p>Managing Export & Import Business, specializing in international trading and supply chain solutions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Profession Section End -->
+
+
+ <!-- Skills Section Begin -->
+<section class="skills spad" style="background: #121212; padding: 100px 0;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title" style="text-align: center; margin-bottom: 50px;">
+                    <span style="color: #ff6ec7; text-transform: uppercase; letter-spacing: 2px;">What I Know</span>
+                    <h2 class="skills-h2" style="color: #fff;">My Skills</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Skill 1 -->
+            <div class="col-lg-6 col-md-6">
+                <div class="skill">
+                    <h4 style="color:#fff;">Web Development</h4>
+                    <div class="progress-bar">
+                        <div class="progress" data-width="95"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Skill 2 -->
+            <div class="col-lg-6 col-md-6">
+                <div class="skill">
+                    <h4 style="color:#fff;">Database Management</h4>
+                    <div class="progress-bar">
+                        <div class="progress" data-width="85"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Skill 3 -->
+            <div class="col-lg-6 col-md-6">
+                <div class="skill">
+                    <h4 style="color:#fff;">Leadership & Management</h4>
+                    <div class="progress-bar">
+                        <div class="progress" data-width="80"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Skill 4 -->
+            <div class="col-lg-6 col-md-6">
+                <div class="skill">
+                    <h4 style="color:#fff;">Business & Strategy</h4>
+                    <div class="progress-bar">
+                        <div class="progress" data-width="75"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Skill 5 -->
+            <div class="col-lg-6 col-md-6">
+                <div class="skill">
+                    <h4 style="color:#fff;">Time Management</h4>
+                    <div class="progress-bar">
+                        <div class="progress" data-width="70"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Skill 6 -->
+            <div class="col-lg-6 col-md-6">
+                <div class="skill">
+                    <h4 style="color:#fff;">Networking & Collaboration</h4>
+                    <div class="progress-bar">
+                        <div class="progress" data-width="75"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Skills Section End -->
+
+
+
+    <!-- Counter Section Begin -->
+    <section class="counter">
+        <div class="container">
+            <div class="counter__content">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="counter__item">
+                            <div class="counter__item__text">
+                                <img src="img/icons/ci-1.png" alt="">
+                                <h2 class="counter_num">230</h2>
+                                <p>Compled Projects</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="counter__item second__item">
+                            <div class="counter__item__text">
+                                <img src="img/icons/ci-2.png" alt="">
+                                <h2 class="counter_num">1068</h2>
+                                <p>Happy clients</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="counter__item third__item">
+                            <div class="counter__item__text">
+                                <img src="img/icons/ci-3.png" alt="">
+                                <h2 class="counter_num">230</h2>
+                                <p>Perspective clients</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="counter__item four__item">
+                            <div class="counter__item__text">
+                                <img src="img/icons/ci-4.png" alt="">
+                                <h2 class="counter_num">230</h2>
+                                <p>Compled Projects</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Counter Section End -->
+
+
+    <!-- My Profile Section Begin -->
+    <section class="team spad set-bg" data-setbg="img/team-bg.jpg">
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title team__title">
+                <span>Nice to meet</span>
+                <h2>My Profile</h2>
+                </div>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6 p-0 fade-left">
+                <div class="team__item set-bg" data-setbg="img/team/my-img-1.jpg"></div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 p-0 fade-right">
+                <div class="team__item team__item--second set-bg" data-setbg="img/team/my-img-2.jpg"></div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 p-0 fade-left">
+                <div class="team__item team__item--third set-bg" data-setbg="img/team/my-img-3.jpg"></div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 p-0 fade-right">
+                <div class="team__item team__item--four set-bg" data-setbg="img/team/my-img-4.jpg"></div>
+            </div>
+            <div class="col-lg-12 p-0">
+                <div class="team__btn">
+                <a href="#" class="primary-btn">Know More About Me</a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    <!-- My Profile Section End -->
+
+
+
+    <!-- Contact Section Begin -->
+    <section id="contact" style="padding:100px 0; background:#100028;">
+        <div class="container">
+            <div class="row">
+                
+                <!-- Contact Info -->
+                <div class="col-lg-5 fade-left">
+                    <div style="margin-bottom:40px;">
+                        <h3 style="color:#fff; font-weight:600; margin-bottom:15px;">Contact Me</h3>
+                        <p style="color:#aaa;">Let’s talk about ideas, opportunities, and collaborations. I’m always open to new projects.</p>
+                    </div>
+                    <ul style="list-style:none; padding:0; margin:0; color:#fff;">
+                        <li style="display:flex; align-items:center; margin-bottom:20px;">
+                            <i class="fa-solid fa-phone" style="font-size:20px; color:#00bfe7; margin-right:12px;"></i> 
+                            <span>(+880) 1714 030 053</span>
+                        </li>
+                        <li style="display:flex; align-items:center; margin-bottom:20px;">
+                            <i class="fa-solid fa-envelope" style="font-size:20px; color:#00bfe7; margin-right:12px;"></i>
+                            <span>mdnomanmir414@gmail.com</span>
+                        </li>
+                        <li style="display:flex; align-items:center;">
+                            <i class="fa-solid fa-location-dot" style="font-size:20px; color:#00bfe7; margin-right:12px;"></i>
+                            <span> Kotwali Model, Cumilla Sadar, Bangladesh</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="col-lg-7 fade-right">
+                    <div style="background:#1e1e1e; padding:40px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.5);">
+                        <h3 style="color:#fff; margin-bottom:30px;">Get In Touch</h3>
+                        <form>
+                            <div style="display:flex; gap:20px; margin-bottom:20px;">
+                                <input type="text" placeholder="Full Name" required 
+                                    style="flex:1; padding:12px 15px; border:none; border-radius:8px; background:#2a2a2a; color:#fff;">
+                                <input type="email" placeholder="Email Address" required 
+                                    style="flex:1; padding:12px 15px; border:none; border-radius:8px; background:#2a2a2a; color:#fff;">
+                            </div>
+                            <div style="display:flex; gap:20px; margin-bottom:20px;">
+                                <input type="text" placeholder="Phone" 
+                                    style="flex:1; padding:12px 15px; border:none; border-radius:8px; background:#2a2a2a; color:#fff;">
+                                <select style="flex:1; padding:12px 15px; border:none; border-radius:8px; background:#2a2a2a; color:#fff;">
+                                    <option>Choose Service</option>
+                                    <option>Business Consultation</option>
+                                    <option>Web Development</option>
+                                    <option>Collaboration</option>
+                                </select>
+                            </div>
+                            <textarea placeholder="Write Message..." rows="5" required 
+                                    style="width:100%; padding:15px; border:none; border-radius:8px; background:#2a2a2a; color:#fff; margin-bottom:20px;"></textarea>
+                            <button type="submit" 
+                                    style="background:#00bfe7; color:#fff; border:none; padding:12px 30px; border-radius:50px; font-weight:500; transition:0.3s;">
+                                Submit Now <i class="fa-solid fa-paper-plane" style="margin-left:8px;"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+
+
+    <!-- Call To Action Section Begin -->
+    <section class="callto spad" style="background: linear-gradient(rgba(18,18,18,0.8), rgba(18,18,18,0.8)), url('img/callto-bg.jpg') center/cover no-repeat; padding:100px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 fade-left">
+                    <div class="callto__text">
+                        <h5 style="color:#00bfe7; text-transform: uppercase; letter-spacing: 2px; margin-bottom:10px;">Empowering Ideas & Innovation</h5>
+                        <h2 style="color:#fff; margin-bottom:20px;">Turning Vision Into Reality | Director | Entrepreneur | Learner</h2>
+                        <p style="color:#ccc; margin-bottom:30px;">Managing Export & Import Business and Leading Mir Enterprise towards growth and innovation.</p>
+                        <a href="#portfolio" class="primary-btn">
+                            See My Work <i class="fa-solid fa-arrow-right" style="margin-left:8px;"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 fade-right">
+                    <div class="callto__features" style="display:flex; flex-direction:column; gap:15px; margin-top:20px;">
+                        <div style="color:#fff; display:flex; align-items:center; gap:10px;">
+                            <i class="fa-solid fa-award" style="color:#00bfe7;"></i> Award Winning Team
+                        </div>
+                        <div style="color:#fff; display:flex; align-items:center; gap:10px;">
+                            <i class="fa-solid fa-globe" style="color:#00bfe7;"></i> Global Business Reach
+                        </div>
+                        <div style="color:#fff; display:flex; align-items:center; gap:10px;">
+                            <i class="fa-solid fa-lightbulb" style="color:#00bfe7;"></i> Innovative Solutions
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Call To Action Section End -->
+
+    <!-- Footer -->
+    <div id="footer"></div>
+    <script>
+    fetch("footer.html")
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById("footer").innerHTML = data;
+        });
+    </script>
+
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/mixitup.min.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
